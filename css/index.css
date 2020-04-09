@@ -2,16 +2,15 @@
 Complement Color: #E6765C
 */
 body{
-  font-family: 'Domine', serif;
-
+  font-family: 'Domine', serif; 
 }
- h1 {
+ h2 {
    text-align: center;
  }
 
  img {
-   width: 300px;
-   height: 300px;
+   width: 250px;
+   height: 250px;
  }
 
  nav, .custom-footer{
@@ -19,16 +18,28 @@ body{
    color: white;
  }
 
+video { 
+    width: 100%;
+}
+
 .navbar-brand{
   color: white !important ;
+  font-size: 30px;
+}
+
+.nav-item { 
+  margin-left: 10px;
 }
 
 .nav-link{
   color: white !important;
+  font-size: 18px;
 }
+
 
 .footer-text{
   text-align: center;
+  margin-top: 3px;
 }
 
 
@@ -42,29 +53,28 @@ body{
 
 
  .imageparagraph{
-   margin: 25px;
- }
+   margin: 25px 25px 0px 25px;
+   text-align: center; 
+}
 
  .columnClass {
-   margin-bottom: 25px;
    display: flex;
    flex-direction: column;
    justify-content: center;
- }
-
-
-
-
-@media only screen and (max-width: 767px){
-  .imageparagraph{
-    text-align: center;
-  }
-
+   margin-top: 30px; 
 }
 
-@media only screen and (min-width: 768px){
-  .imageparagraph{
-    text-align: left;
-  }
+#navbarNav { 
+    justify-content: flex-end;
+}
+
+.columnClassLastSm { 
+    margin-bottom: 30px;
+}
+
+@media only screen and (min-width: 767px) { 
+    .columnClassLastMd { 
+        margin-bottom: 30px;
+    }
 
 }
