@@ -1,0 +1,70 @@
+/* Base Color Maroon: #80002D
+Complement Color: #E6765C
+*/
+body{
+  font-family: 'Domine', serif;
+
+}
+ h1 {
+   text-align: center;
+ }
+
+ img {
+   width: 300px;
+   height: 300px;
+ }
+
+ nav, .custom-footer{
+   background-color: #80002D;
+   color: white;
+ }
+
+.navbar-brand{
+  color: white !important ;
+}
+
+.nav-link{
+  color: white !important;
+}
+
+.footer-text{
+  text-align: center;
+}
+
+
+ .imagediv {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   height: 100%;
+   align-items: center;
+ }
+
+
+ .imageparagraph{
+   margin: 25px;
+ }
+
+ .columnClass {
+   margin-bottom: 25px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+ }
+
+
+
+
+@media only screen and (max-width: 767px){
+  .imageparagraph{
+    text-align: center;
+  }
+
+}
+
+@media only screen and (min-width: 768px){
+  .imageparagraph{
+    text-align: left;
+  }
+
+}
