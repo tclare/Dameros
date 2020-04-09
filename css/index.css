@@ -3,10 +3,19 @@ Complement Color: #E6765C
 */
 body{
   font-family: 'Domine', serif; 
+  padding-right: 0px; 
+  overflow-x: hidden;
 }
- h2 {
+ 
+h2 {
    text-align: center;
- }
+ 
+}
+
+.navbar-toggler-icon { 
+    background-image: none;
+    filter: invert(1) brightness(200%); 
+}
 
  img {
    width: 250px;
@@ -53,7 +62,7 @@ video {
 
 
  .imageparagraph{
-   margin: 25px 25px 0px 25px;
+   margin: 25px 40px 0px 40px;
    text-align: center; 
 }
 
