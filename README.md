@@ -1,6 +1,6 @@
 Welcome to the Dameros code repository. We're glad you're here.
 
-The following is the timeline for the Dameros project:
+The following is the timeline for the project:
 
 **Backend**<br/>
 Learn flask (March 26) <br/>
