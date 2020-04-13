@@ -21,3 +21,26 @@ Our team (Apr 22) <br/>
 Success stories (Apr 29) <br/>
 Construct HTML templates (May 7) <br/>
 Finished product (May 14th) <br/>
+
+
+## Installation
+1. Clone repository
+```
+git clone https://github.com/tclare/Dameros.git
+```
+2. Create virtual environment
+```
+python3 -m venv venv
+```
+3. Activate virtual environment
+```
+source venv/bin/activate
+```
+4. Install requirements
+```
+pip3 install -r requirements.txt
+```
+5.  Run server
+```
+flask run
+```
