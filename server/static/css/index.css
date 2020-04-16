@@ -2,19 +2,19 @@
 Complement Color: #E6765C
 */
 body{
-  font-family: 'Domine', serif; 
-  padding-right: 0px; 
+  font-family: 'Domine', serif;
+  padding-right: 0px;
   overflow-x: hidden;
 }
- 
+
 h2 {
    text-align: center;
- 
+   margin: 15px 0px;
 }
 
-.navbar-toggler-icon { 
+.navbar-toggler-icon {
     background-image: none;
-    filter: invert(1) brightness(200%); 
+    filter: invert(1) brightness(200%);
 }
 
  img {
@@ -27,8 +27,25 @@ h2 {
    color: white;
  }
 
-video { 
+video {
     width: 100%;
+}
+
+form{
+  margin: 25px 10% ;
+}
+
+ol{
+  margin-left: 7%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+#process{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
 }
 
 .navbar-brand{
@@ -36,7 +53,7 @@ video {
   font-size: 30px;
 }
 
-.nav-item { 
+.nav-item {
   margin-left: 10px;
 }
 
@@ -45,6 +62,16 @@ video {
   font-size: 18px;
 }
 
+.filler-color{
+  background-color: #E6765C;
+}
+
+.apply-image{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 
 .footer-text{
   text-align: center;
@@ -63,27 +90,45 @@ video {
 
  .imageparagraph{
    margin: 25px 40px 0px 40px;
-   text-align: center; 
+   text-align: center;
 }
 
  .columnClass {
    display: flex;
    flex-direction: column;
    justify-content: center;
-   margin-top: 30px; 
+   margin-top: 30px;
 }
 
-#navbarNav { 
+#navbarNav {
     justify-content: flex-end;
 }
 
-.columnClassLastSm { 
+.columnClassLastSm {
     margin-bottom: 30px;
 }
 
-@media only screen and (min-width: 767px) { 
-    .columnClassLastMd { 
+@media only screen and (min-width: 768px) {
+    .columnClassLastMd {
         margin-bottom: 30px;
     }
+
+    .filler-color{
+      width: 25%;
+    }
+
+    #apply-content{
+      width: 50%;
+    }
+}
+
+@media only screen and (max-width: 767px){
+  .filler-color{
+      width: 10%
+  }
+
+  #apply-content{
+    width: 80%;
+  }
 
 }
