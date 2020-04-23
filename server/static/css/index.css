@@ -17,9 +17,13 @@ h2 {
     filter: invert(1) brightness(200%);
 }
 
- img {
+ .landing-image {
    width: 250px;
    height: 250px;
+ }
+
+ .spaced-header{
+   margin: 50px 0px;
  }
 
  nav, .custom-footer{
@@ -73,6 +77,18 @@ ol{
   justify-content: center;
 }
 
+.success-row{
+  margin: 0px 15px 50px 15px;
+  max-height: 400px; 
+}
+
+.text-div{
+  height: 100%;
+  overflow-y: scroll;
+}
+
+
+
 .footer-text{
   text-align: center;
   margin-top: 3px;
@@ -93,11 +109,33 @@ ol{
    text-align: center;
 }
 
+.success-image{
+  width: 100%;
+}
+
+.carousel-indicators{
+  bottom: unset;
+  top: 10px;
+}
+
+.carousel-text{
+  font-size: 20px;
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon{
+  width: 40px;
+  height: 40px;
+}
+
  .columnClass {
    display: flex;
    flex-direction: column;
    justify-content: center;
    margin-top: 30px;
+}
+
+.success-image-div{
+  width: 100%;
 }
 
 #navbarNav {
@@ -120,6 +158,10 @@ ol{
     #apply-content{
       width: 50%;
     }
+
+    #all-content{
+        min-height: calc(100vh - 71px - 54px);
+    }
 }
 
 @media only screen and (max-width: 767px){
@@ -129,6 +171,11 @@ ol{
 
   #apply-content{
     width: 80%;
+  }
+
+  #all-content{
+    min-height: calc(100vh - 71px - 108px);
+
   }
 
 }
