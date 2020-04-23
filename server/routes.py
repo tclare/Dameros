@@ -11,3 +11,7 @@ def index():
 @app.route('/apply')
 def apply_func():
     return render_template("apply.html")
+
+@app.route('/success_stories')
+def success_stories_func():
+    return render_template("success_stories.html")
