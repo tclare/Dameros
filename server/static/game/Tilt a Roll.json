@@ -1,0 +1,16 @@
+{
+"companyName": "DefaultCompany",
+"productName": "Sandbox",
+"productVersion": "0.1",
+"dataUrl": "Tilt a Roll.data.unityweb",
+"wasmCodeUrl": "Tilt a Roll.wasm.code.unityweb",
+"wasmFrameworkUrl": "Tilt a Roll.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": true,
+"multithreading": false,
+"unityVersion": "2019.3.7f1"
+}
