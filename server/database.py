@@ -12,6 +12,7 @@ def test():
                 EntryID INTEGER NOT NULL,
                 Message VARCHAR(255),
                 PRIMARY KEY (EntryID)
+                )
     """
 
     cursor = conn.cursor()
