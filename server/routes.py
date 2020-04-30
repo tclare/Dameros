@@ -1,5 +1,6 @@
 from server import app
 from flask import render_template
+from server import database
 
 
 @app.route('/')
@@ -19,3 +20,9 @@ def success_stories_func():
 @app.route('/tilt_a_roll')
 def tilt_a_roll_func():
     return render_template("play.html")
+
+
+@app.route('/test')
+def test_func():
+    print("Hit")
+    return database.test()

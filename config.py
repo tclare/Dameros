@@ -7,4 +7,4 @@ load_dotenv(os.path.join(basedir, '.env'))
 
 class Config(object):
     # database URL's, config, etc.
-    pass
+    DATABASE_URL = os.getenv("DATABASE_URL")
