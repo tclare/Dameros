@@ -24,5 +24,4 @@ def tilt_a_roll_func():
 
 @app.route('/test')
 def test_func():
-    print("Hit")
     return database.test()
