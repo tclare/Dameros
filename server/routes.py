@@ -38,7 +38,7 @@ def image_content():
     ### How to grab image file that was just changed (error handle / make sure it has some content):
     id = dict(request.files).keys()[0] ## ex. 'success-stories-image-1'. Id representing image file to change.
     data = request.files[id] ## ex. <FileStorage: 'fullsizeoutput_1f3.jpeg' ('image/jpeg')>. Contents of uploaded file.
-    ## use github api ?? To upload this new file ??  
+    ## TODO: use github api ?? To upload this new file ??  https://developer.github.com/v3/repos/contents/#create-or-update-a-file ??
     ## TODO: git add, commit, push
     return jsonify({'success': 'yes'})
 
