@@ -29,10 +29,6 @@ def destroy_old_form_entries():
 def tilt_a_roll_func():
     return render_template("play.html")
 
-@app.route('/admin')
-def admin_func():
-    return render_template("admin.html")
-
 @app.route('/text_content', methods=['PUT'])
 def text_content():
     ## TODO: Carefully check authentication (of Lauren) via session variables
