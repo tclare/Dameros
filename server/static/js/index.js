@@ -15,6 +15,7 @@ function file_chosen(form_data) {
 
 }
 
+
 function textInputChanged(){
   console.log("Here");
   // var v = document.getElementById("first-landing-paragraph").value; <== normal JS

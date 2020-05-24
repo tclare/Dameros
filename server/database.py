@@ -1,10 +1,14 @@
 import psycopg2
-import os
 from server import app
 
 db_url = app.config["DATABASE_URL"]
 conn = psycopg2.connect(db_url, sslmode="require")
 
+
+"""
+SQL injections
+ - parameterizing queries (text inputs)
+"""
 
 def push(text):
     cursor = conn.cursor()
@@ -28,7 +32,6 @@ def get(text, one=False):
     cursor.close()
     conn.commit()
 
-    print(res)
     return res
 
 
