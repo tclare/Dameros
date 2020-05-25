@@ -2,6 +2,7 @@ from server import app
 from flask import render_template, jsonify, request
 from server import database
 from server import db_setup
+import binascii
 
 @app.route('/')
 @app.route('/index')
@@ -41,9 +42,11 @@ def text_content():
 def image_content():
     ## TODO: Carefully check authentication (of Lauren) via session variables
     ### How to grab image file that was just changed (error handle / make sure it has some content):
-    id = dict(request.files).keys()[0] ## ex. 'success-stories-image-1'. Id representing image file to change.
-    data = request.files[id] ## ex. <FileStorage: 'fullsizeoutput_1f3.jpeg' ('image/jpeg')>. Contents of uploaded file.
+    id = list(dict(request.files).keys())[0] ## ex. 'success-stories-image-1'. Id representing image file to change.
+    binary_image_data = request.files[id].read() ## ex. <FileStorage: 'fullsizeoutput_1f3.jpeg' ('image/jpeg')>. Contents of uploaded file.
+    base_64_image_data = binascii.b2a_base64(image_data)
     ## TODO: use github api ?? To upload this new file ??   https://developer.github.com/v3/repos/contents/#create-or-update-a-file ??
+    ## The GitHub API only accepts base-64 encoding for file content, so that's the reason for base_64_image_data. 
     ## TODO: git add, commit, push
     return jsonify({'success': 'yes'})
 
