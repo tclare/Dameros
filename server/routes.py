@@ -44,7 +44,7 @@ def image_content():
     ### How to grab image file that was just changed (error handle / make sure it has some content):
     id = list(dict(request.files).keys())[0] ## ex. 'success-stories-image-1'. Id representing image file to change.
     binary_image_data = request.files[id].read() ## ex. <FileStorage: 'fullsizeoutput_1f3.jpeg' ('image/jpeg')>. Contents of uploaded file.
-    base_64_image_data = binascii.b2a_base64(image_data)
+    base_64_image_data = binascii.b2a_base64(binary_image_data)
     ## TODO: use github api ?? To upload this new file ??   https://developer.github.com/v3/repos/contents/#create-or-update-a-file ??
     ## The GitHub API only accepts base-64 encoding for file content, so that's the reason for base_64_image_data. 
     ## TODO: git add, commit, push

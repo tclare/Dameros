@@ -39,9 +39,9 @@ def create_dynamic_content_table():
     
     query = """
         CREATE TABLE dynamic_content(
-            element_id VARCHAR() PRIMARY KEY,
-            page_id VARCHAR(),
-            content VARCHAR()
+            element_id VARCHAR PRIMARY KEY,
+            page_id VARCHAR,
+            content VARCHAR
         )
     """
 
@@ -61,14 +61,14 @@ def create_form_responses_table():
     query = """
             CREATE TABLE form_responses(
                 id SERIAL PRIMARY KEY,
-                first_name VARCHAR() NOT NULL,
-                last_name VARCHAR() NOT NULL,
-                email VARCHAR(),
-                sport VARCHAR(),
-                agent_email VARCHAR(),
-                agent_phone VARCHAR(),
+                first_name VARCHAR NOT NULL,
+                last_name VARCHAR NOT NULL,
+                email VARCHAR,
+                sport VARCHAR,
+                agent_email VARCHAR,
+                agent_phone VARCHAR,
                 time TIMESTAMP NOT NULL, 
-                interest VARCHAR()
+                interest VARCHAR
             )
         """
 
