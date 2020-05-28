@@ -4,7 +4,7 @@ from functools import wraps
 
 
 db_url = app.config["DATABASE_URL"]
-# conn = psycopg2.connect(db_url, sslmode="require")
+conn = psycopg2.connect(db_url, sslmode="require")
 
 
 """

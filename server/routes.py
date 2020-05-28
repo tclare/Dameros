@@ -10,7 +10,7 @@ pages = database.Pages()
 
 @app.context_processor
 def page_content():
-    # extend "content" as a global variable across all templates
+    # extend "page_content" as a global variable across all templates
     return dict(
         page_content=pages.content
     )
