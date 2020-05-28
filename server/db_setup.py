@@ -2,6 +2,7 @@ import psycopg2
 import os
 from server import app
 
+
 def drop_dynamic_content():
     db_url = app.config["DATABASE_URL"]
     
@@ -17,6 +18,7 @@ def drop_dynamic_content():
 
     return "It worked"
 
+
 def drop_form_entries():
     db_url = app.config["DATABASE_URL"]
     
@@ -31,6 +33,7 @@ def drop_form_entries():
     conn.close()
 
     return "It worked"
+
 
 def create_dynamic_content_table():
     db_url = app.config["DATABASE_URL"]
@@ -52,6 +55,7 @@ def create_dynamic_content_table():
     conn.close()
 
     return "It worked"
+
 
 def create_form_responses_table():
     db_url = app.config["DATABASE_URL"]
