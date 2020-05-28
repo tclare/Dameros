@@ -8,4 +8,6 @@ load_dotenv(path_to_env)
 
 class Config(object):
     # database URL's, config, etc.
-    DATABASE_URL = os.getenv("DATABASE_URL")
+    DATABASE_URL   = os.getenv("DATABASE_URL")
+    ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD")
+    SECRET_KEY     = os.getenv("SECRET_KEY")

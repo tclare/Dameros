@@ -1,8 +1,13 @@
 from server import app
-from flask import render_template, jsonify, request
+from flask import render_template, jsonify
 from server import database
 from server import db_setup
 import binascii
+
+
+from flask import session, request, redirect, abort
+from functools import wraps
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 pages = database.Pages()
@@ -14,6 +19,53 @@ def page_content():
     return dict(
         page_content=pages.content
     )
+
+
+def login_required(func):
+    @wraps(func)
+    def decorator(*args, **kwargs):
+        password = session.get("password")
+        goal     = app.config["ADMIN_PASSWORD"]
+
+        if password and check_password_hash(password, goal):
+            # no authentication necessary
+            return func(*args, **kwargs)
+        else:
+            # must login first
+            #     - store current location in "next"
+            #     - redirect to login page
+            if request.method == "GET":
+                return redirect("/login?next=" + request.path)
+            else:
+                return redirect("/login?next=/admin")
+
+    return decorator
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        # hash password before assigning it to a session variable
+        plain_text_password = request.form["password"]
+        session["password"] = generate_password_hash(plain_text_password)
+
+        # redirect to where we were previously
+        redirect_url = request.form["next"]
+        return redirect(redirect_url)
+
+    elif request.method == "GET":
+        # load login form
+        # 10 failed attempts per session
+        session["attempts"] = session.get("attempts", 0) + 1
+
+        if session["attempts"] > 10:
+            return "Too many failed attempts"
+        else:
+            redirect_url = request.args.get("next", "/")
+            return render_template("login.html", next=redirect_url)
+
+    # invalid method
+    return abort(400)
 
 
 @app.route('/')
@@ -37,20 +89,8 @@ def success_stories_func():
 
 @app.route('/admin')
 @pages.register("admin", all_records=True)
+@login_required
 def admin_func():
-    """
-    if method == "GET" and session["authenticated"]:
-        return render_template("admin.html")
-
-    else:
-        # database.get(password)
-        # compare to request.form["password"]
-
-        # good -> set session var
-        session["authenticated"] = "yes"
-
-        # bad -> return error
-    """
     return render_template("admin.html")
 
 
@@ -59,8 +99,8 @@ def tilt_a_roll_func():
     return render_template("play.html")
 
 
-# @authenticated
 @app.route('/text_content', methods=['PUT'])
+@login_required
 def text_content():
     # TODO: Carefully check authentication (of Lauren) via session variables
     # How to grab id and value that were just changed (error handle them):
@@ -71,8 +111,8 @@ def text_content():
     return jsonify({'success': 'yes'})
 
 
-# @authenticated
 @app.route('/image_content', methods=['POST'])
+@login_required
 def image_content():
     # TODO: Carefully check authentication (of Lauren) via session variables
     # How to grab image file that was just changed (error handle / make sure it has some content):
@@ -89,6 +129,7 @@ def image_content():
     # TODO: git add, commit, push
 
     return jsonify({'success': 'yes'})
+
 
 @app.route('/apply_response', methods=['POST'])
 def apply_response_func():
