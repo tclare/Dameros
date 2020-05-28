@@ -58,19 +58,19 @@
   <form>
     <div class="form-group">
       <label for="exampleFormControlInput1">Name</label>
-      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+      <input type="text" class="form-control" id="apply-name" placeholder="name@example.com">
     </div>
   <div class="form-group">
     <label for="exampleFormControlInput1">Email address</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+    <input type="email" class="form-control" id="apply-email" placeholder="">
   </div>
   <div class="form-group">
     <label for="exampleFormControlInput1">Sport</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+    <input type="text" class="form-control" id="apply-sport" placeholder="">
   </div>
   <div class="form-group">
     <label for="exampleFormControlSelect1">Intended Donation Amount</label>
-    <select class="form-control" id="exampleFormControlSelect1">
+    <select class="form-control" id="apply-donation-amount">
       <option>$0-$1,000</option>
       <option>$1,000-$10,000</option>
       <option>$10,000-$20,000</option>
@@ -81,9 +81,9 @@
   </div>
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Philanthropic Interests</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <textarea class="form-control" id="apply-philanthropic-interests" rows="3"></textarea>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button onclick="newApplication()" class="btn btn-primary">Submit</button>
 </form>
 </div>
 

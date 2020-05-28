@@ -1,17 +1,17 @@
 $(document).ready(function() {
   $("textarea").change(textInputChanged); // all text inputs are <textarea>s
   $("input").change(imageInputChanged);  // all image inputs are <input>s
-  
+
 });
 
 // FUNCTION (utility): protocol_hostname_port
 // params: none
 // returns string: protocol, hostname, port from current URL. Avoids hardcoding in API calls.
-function protocol_hostname_port() { 
+function protocol_hostname_port() {
   return location.protocol + '//' + location.hostname + (location.port ? ':'+location.port: '');
 }
 
-function file_chosen(form_data) { 
+function file_chosen(form_data) {
 
 }
 
@@ -68,4 +68,16 @@ function imageInputChanged() {
       console.log(response);
     }
   }
+}
+
+function newApplication(){
+  var name = $('#apply-name').val();
+  var email = $('#apply-email').val();
+  var sport = $('#apply-sport').val();
+  var donationAmount = $('#apply-donation-amount').val();
+  var philanthropicInterest = $('#apply-philanthropic-interests').val();
+
+  console.log(name, email, sport, donationAmount, philanthropicInterest);
+  
+
 }
