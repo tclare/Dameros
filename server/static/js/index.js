@@ -11,11 +11,6 @@ function protocol_hostname_port() {
   return location.protocol + '//' + location.hostname + (location.port ? ':'+location.port: '');
 }
 
-function file_chosen(form_data) {
-
-}
-
-
 function textInputChanged(){
   console.log("Here");
   // var v = document.getElementById("first-landing-paragraph").value; <== normal JS
@@ -68,16 +63,4 @@ function imageInputChanged() {
       console.log(response);
     }
   }
-}
-
-function newApplication(){
-  var name = $('#apply-name').val();
-  var email = $('#apply-email').val();
-  var sport = $('#apply-sport').val();
-  var donationAmount = $('#apply-donation-amount').val();
-  var philanthropicInterest = $('#apply-philanthropic-interests').val();
-
-  console.log(name, email, sport, donationAmount, philanthropicInterest);
-  
-
 }

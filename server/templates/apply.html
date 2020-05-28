@@ -12,7 +12,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
       <!-- custom scripts here -->
-      <script src="static/js/index.js"></script>
+      <script src="static/js/apply.js"></script>
 
 </head>
 <body>
@@ -58,15 +58,15 @@
   <form>
     <div class="form-group">
       <label for="exampleFormControlInput1">Name</label>
-      <input type="text" class="form-control" id="apply-name" placeholder="name@example.com">
+      <input type="text" class="form-control" id="apply-name" placeholder="John Smith">
     </div>
   <div class="form-group">
     <label for="exampleFormControlInput1">Email address</label>
-    <input type="email" class="form-control" id="apply-email" placeholder="">
+    <input type="email" class="form-control" id="apply-email" placeholder="jsmith@gmail.com">
   </div>
   <div class="form-group">
     <label for="exampleFormControlInput1">Sport</label>
-    <input type="text" class="form-control" id="apply-sport" placeholder="">
+    <input type="text" class="form-control" id="apply-sport" placeholder="Basketball">
   </div>
   <div class="form-group">
     <label for="exampleFormControlSelect1">Intended Donation Amount</label>
@@ -83,7 +83,7 @@
     <label for="exampleFormControlTextarea1">Philanthropic Interests</label>
     <textarea class="form-control" id="apply-philanthropic-interests" rows="3"></textarea>
   </div>
-  <button onclick="newApplication()" class="btn btn-primary">Submit</button>
+  <input type="button" value="Submit" onclick="newApplication()" class="btn btn-primary">
 </form>
 </div>
 
