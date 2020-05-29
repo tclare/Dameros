@@ -79,11 +79,11 @@ def get(text, one=False):
 
 def get_page_content(page_id, all_records=False):
     records = [
-        ("#picture", "home", "pic"),
-        ("#paragraph1", "demo", "abcdefg"),
-        ("#paragraph2", "demo", "1234"),
-        ("#paragraph3", "success_stories", "abcd"),
-        ("#paragraph4", "apply", "bedef")
+        ("picture", "home", "pic"),
+        ("paragraph1", "demo", "abcdefg"),
+        ("paragraph2", "demo", "1234"),
+        ("paragraph3", "success_stories", "abcd"),
+        ("paragraph4", "apply", "bedef")
     ]
 
     return [

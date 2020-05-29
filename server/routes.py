@@ -28,16 +28,11 @@ def login_required(func):
         goal     = app.config["ADMIN_PASSWORD"]
 
         if password and check_password_hash(password, goal):
-            # no authentication necessary
+            # passed authentication
             return func(*args, **kwargs)
         else:
             # must login first
-            #     - store current location in "next"
-            #     - redirect to login page
-            if request.method == "GET":
-                return redirect("/login?next=" + request.path)
-            else:
-                return redirect("/login?next=/admin")
+            return redirect("/login")
 
     return decorator
 
@@ -49,9 +44,7 @@ def login():
         plain_text_password = request.form["password"]
         session["password"] = generate_password_hash(plain_text_password)
 
-        # redirect to where we were previously
-        redirect_url = request.form["next"]
-        return redirect(redirect_url)
+        return redirect("/admin")
 
     elif request.method == "GET":
         # load login form
@@ -61,8 +54,7 @@ def login():
         if session["attempts"] > 10:
             return "Too many failed attempts"
         else:
-            redirect_url = request.args.get("next", "/")
-            return render_template("login.html", next=redirect_url)
+            return render_template("login.html")
 
     # invalid method
     return abort(400)
@@ -91,7 +83,7 @@ def success_stories_func():
 @pages.register("admin", all_records=True)
 @login_required
 def admin_func():
-    return render_template("admin.html")
+    return render_template("admin.html", authenticated=False)
 
 
 @app.route('/tilt_a_roll')
@@ -144,6 +136,6 @@ def test_func():
 
 
 @app.route("/demo")
-@pages.register("demo", all_records=True)
+@pages.register("demo")
 def demo_func():
-    return render_template("demo.html")
+    return render_template("page_content_demo.html")

@@ -5,13 +5,23 @@
     <title>Page Content Demo</title>
 </head>
 <body>
-    <pre>
-        {{ page_content }}
-    </pre>
-    <p>
+    <div>
+        <h3>page_content</h3>
+        <pre>
+            {{ page_content }}
+        </pre>
+    </div>
+
+    <div>
+        <h3>for key in page_content -> page_content[key]</h3>
         {% for key in page_content %}
             {{ key }}: {{ page_content[key] }} <br>
         {% endfor %}
-    </p>
+    </div>
+
+    <div>
+        <h3>page_content.paragraph1</h3>
+        paragraph1: {{ page_content.paragraph1 }}
+    </div>
 </body>
 </html>
