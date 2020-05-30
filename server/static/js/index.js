@@ -59,6 +59,8 @@ function imageInputChanged() {
   var admin_id = $(this).attr('id');
   var form_data = new FormData();
   form_data.append(admin_id, $('#' + admin_id)[0].files[0]);
+  console.log(form_data);
+  
   var xhttp = new XMLHttpRequest();
   xhttp.open("POST", protocol_hostname_port() + "/image_content", true);
   xhttp.send(form_data);
@@ -68,4 +70,5 @@ function imageInputChanged() {
       console.log(response);
     }
   }
+  
 }

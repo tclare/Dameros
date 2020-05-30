@@ -9,3 +9,5 @@ load_dotenv(path_to_env)
 class Config(object):
     # database URL's, config, etc.
     DATABASE_URL = os.getenv("DATABASE_URL")
+    GITHUB_USERNAME = os.getenv("GITHUB_USERNAME")
+    GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
