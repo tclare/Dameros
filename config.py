@@ -11,3 +11,5 @@ class Config(object):
     DATABASE_URL = os.getenv("DATABASE_URL")
     GITHUB_USERNAME = os.getenv("GITHUB_USERNAME")
     GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+    ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD")
+    SECRET_KEY     = os.getenv("SECRET_KEY")
