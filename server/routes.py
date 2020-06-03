@@ -93,6 +93,7 @@ def image_content():
 @app.route('/apply_response', methods=['POST'])
 def apply_response_func():
     form_response = request.json # ex. {'name': 'a', 'email': 'b', 'sport': 'c', 'donationAmount': '$0-$1,000', 'philanthropicInterest': 'd'}
+    print(form_response)
     # TODO: insert data from response into db.
     return jsonify({'success': 'yes'})
 
