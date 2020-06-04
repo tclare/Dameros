@@ -46,23 +46,19 @@
     <div class="carousel-item active">
       <img src="../static/img/nonprofit0.jpg" id="success-stories-image-1" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block" id="success-stories-text-1">
-        <h3>"A bird and a hand is worth two in the bush"</h3>
-        <p class="carousel-text">-Neil Armstrong</p>
-
+        {{ page_content["success-stories-text-1"] | safe }}
       </div>
     </div>
     <div class="carousel-item">
       <img src="../static/img/nonprofit1.jpg" id="success-stories-image-2" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block" id="success-stories-text-2">
-        <h3>"Dameros is the best at what they do, hands down."</h3>
-        <p class="carousel-text">-New York Times</p>
+        {{ page_content["success-stories-text-2"] | safe }}
       </div>
     </div>
     <div class="carousel-item">
       <img src="../static/img/nonprofit2.jpg" id="success-stories-image-3" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block" id="success-stories-text-3">
-        <h3>"Andy Slavin Sux"</h3>
-        <p class="carousel-text">-Everyone</p>
+        {{ page_content["success-stories-text-3"] | safe }}
       </div>
     </div>
   </div>
@@ -87,9 +83,7 @@
     </div>
     <div class="col-6 col-md-8 col-lg-9 col-xl-10 success-text-column">
       <div class="text-div">
-        <p id="success-stories-text-4"> There are currently 31 undergraduate residence halls at the University of Notre Dame. Several of the halls are historic buildings which are listed on the National Register of Historic Places.[1] Each residence hall is single-sex, with 17 all-male residence halls and 14 all-female residence halls.[2] Notre Dame residence halls feature a mixed residential college and house system, where residence halls are the center of the student life and some academic teaching; most students stay at the same hall for most of their undergraduate studies.[3][4] Each hall has its own traditions, events, mascot, sports teams, shield, motto, and dorm pride.[5][6][7] The university also hosts Old College, an undergraduate residence for students preparing for the priesthood.
-Notre Dame has an undergraduate hall system which blends the residential college system and the house system. All first-year students are placed in one of the 31 halls upon enrollment, and students rarely switch halls. Each hall has its own spirit, tradition, mascot, sport teams, events, dances and reputation. Approximately 80% of undergraduate students live on campus, and often a student lives in the same dorm for the entirety of their undergraduate career.[8] A huge segment of student life happens through residence halls and students develop a particular attachment to their undergraduate hall. Each residence hall is directed by one Rector with the assistance of two Assistant Rectors and a variable number of Resident Assistants (from 4 to 9). Every residence hall has a chapel where Mass is held multiple time per week, fields a variety of intramural sports teams, elects one senator to represent the dorm in Student Government, and elects a president and vice president(s) which work through the Hall Presidents Council (HPC) student organization. Interhall football between Notre Dame male dorms is the only interhall tackle football which has remained at any US university.[9] Notre Dame residence halls are the center of the campus student life, and each one hosts signature events, like the Keenan Revue,[10] the Zahm Hall Bun run,[11] Fisher Regatta,[12] the Siegfried Day of Man, The Dillon Hall Pep Rally [13][14] and many others. Each dorm has its own architectural features, some of which were designed by famous architects such as Willoughby J. Edbrooke, Maginnis & Walsh and Thomas Ellerbe, and each hall has a chapel dedicated to the Hall's patron saint.[15]
-With the exception of Carroll Hall, the residence halls are split among five main segments of the campus: Main (God) Quad, South Quad, North Quad, Mod Quad and West Quad. (Carroll has its own lawn, by Saint Mary's Lake, informally called "Far Quad.") All first-year students are not only guaranteed on-campus housing, but are required to reside on campus for at least six semesters, starting with the Class of 2022.[7] Many of the halls were inserted in 1973 on the National Register of Historic Places.</p>
+        <p id="success-stories-text-4">{{ page_content["success-stories-text-4"] }}</p>
       </div>
     </div>
   </div>
@@ -97,8 +91,7 @@ With the exception of Carroll Hall, the residence halls are split among five mai
 
     <div class="col-6 col-md-8 col-lg-9 col-xl-10 success-text-column order-md-1 order-sm-2">
       <div class="text-div">
-        <p id="success-stories-text-5"> There are currently 31 undergraduate residence halls at the University of Notre Dame. Several of the halls are historic buildings which are listed on the National Register of Historic Places.[1] Each residence hall is single-sex, with 17 all-male residence halls and 14 all-female residence halls.[2] Notre Dame residence halls feature a mixed residential college and house system, where residence halls are the center of the student life and some academic teaching; most students stay at the same hall for most of their undergraduate studies.[3][4] Each hall has its own traditions, events, mascot, sports teams, shield, motto, and dorm pride.[5][6][7] The university also hosts Old College, an undergraduate residence for students preparing for the priesthood. Notre Dame has an undergraduate hall system which blends the residential college system and the house system. All first-year students are placed in one of the 31 halls upon enrollment, and students rarely switch halls. Each hall has its own spirit, tradition, mascot, sport teams, events, dances and reputation. Approximately 80% of undergraduate students live on campus, and often a student lives in the same dorm for the entirety of their undergraduate career.[8] A huge segment of student life happens through residence halls and students develop a particular attachment to their undergraduate hall. Each residence hall is directed by one Rector with the assistance of two Assistant Rectors and a variable number of Resident Assistants (from 4 to 9). Every residence hall has a chapel where Mass is held multiple time per week, fields a variety of intramural sports teams, elects one senator to represent the dorm in Student Government, and elects a president and vice president(s) which work through the Hall Presidents Council (HPC) student organization. Interhall football between Notre Dame male dorms is the only interhall tackle football which has remained at any US university.[9] Notre Dame residence halls are the center of the campus student life, and each one hosts signature events, like the Keenan Revue,[10] the Zahm Hall Bun run,[11] Fisher Regatta,[12] the Siegfried Day of Man, The Dillon Hall Pep Rally [13][14] and many others. Each dorm has its own architectural features, some of which were designed by famous architects such as Willoughby J. Edbrooke, Maginnis & Walsh and Thomas Ellerbe, and each hall has a chapel dedicated to the Hall's patron saint.[15]
-With the exception of Carroll Hall, the residence halls are split among five main segments of the campus: Main (God) Quad, South Quad, North Quad, Mod Quad and West Quad. (Carroll has its own lawn, by Saint Mary's Lake, informally called "Far Quad.") All first-year students are not only guaranteed on-campus housing, but are required to reside on campus for at least six semesters, starting with the Class of 2022.[7] Many of the halls were inserted in 1973 on the National Register of Historic Places.</p>
+        <p id="success-stories-text-5">{{ page_content["success-stories-text-5"] }}</p>
       </div>
     </div>
     <div class="col-6 col-md-4 col-lg-3 col-xl-2 success-image-column order-1 order-sm-2">
@@ -115,11 +108,7 @@ With the exception of Carroll Hall, the residence halls are split among five mai
     </div>
     <div class="col-6 col-md-8 col-lg-9 col-xl-10 success-text-column">
       <div class="text-div">
-        <p id="success-stories-text-6"> There are currently 31 undergraduate residence halls at the University of Notre Dame. Several of the halls are historic buildings which are listed on the National Register of Historic Places.[1] Each residence hall is single-sex, with 17 all-male residence halls and 14 all-female residence halls.[2] Notre Dame residence halls feature a mixed residential college and house system, where residence halls are the center of the student life and some academic teaching; most students stay at the same hall for most of their undergraduate studies.[3][4] Each hall has its own traditions, events, mascot, sports teams, shield, motto, and dorm pride.[5][6][7] The university also hosts Old College, an undergraduate residence for students preparing for the priesthood.
-
-Notre Dame has an undergraduate hall system which blends the residential college system and the house system. All first-year students are placed in one of the 31 halls upon enrollment, and students rarely switch halls. Each hall has its own spirit, tradition, mascot, sport teams, events, dances and reputation. Approximately 80% of undergraduate students live on campus, and often a student lives in the same dorm for the entirety of their undergraduate career.[8] A huge segment of student life happens through residence halls and students develop a particular attachment to their undergraduate hall. Each residence hall is directed by one Rector with the assistance of two Assistant Rectors and a variable number of Resident Assistants (from 4 to 9). Every residence hall has a chapel where Mass is held multiple time per week, fields a variety of intramural sports teams, elects one senator to represent the dorm in Student Government, and elects a president and vice president(s) which work through the Hall Presidents Council (HPC) student organization. Interhall football between Notre Dame male dorms is the only interhall tackle football which has remained at any US university.[9] Notre Dame residence halls are the center of the campus student life, and each one hosts signature events, like the Keenan Revue,[10] the Zahm Hall Bun run,[11] Fisher Regatta,[12] the Siegfried Day of Man, The Dillon Hall Pep Rally [13][14] and many others. Each dorm has its own architectural features, some of which were designed by famous architects such as Willoughby J. Edbrooke, Maginnis & Walsh and Thomas Ellerbe, and each hall has a chapel dedicated to the Hall's patron saint.[15]
-
-With the exception of Carroll Hall, the residence halls are split among five main segments of the campus: Main (God) Quad, South Quad, North Quad, Mod Quad and West Quad. (Carroll has its own lawn, by Saint Mary's Lake, informally called "Far Quad.") All first-year students are not only guaranteed on-campus housing, but are required to reside on campus for at least six semesters, starting with the Class of 2022.[7] Many of the halls were inserted in 1973 on the National Register of Historic Places.</p>
+        <p id="success-stories-text-6">{{ page_content["success-stories-text-6"] }}</p>
       </div>
     </div>
   </div>

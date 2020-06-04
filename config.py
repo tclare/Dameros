@@ -1,5 +1,6 @@
 import os
 from dotenv import load_dotenv
+from datetime import timedelta
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 path_to_env = os.path.join(basedir, '.env')
@@ -13,3 +14,5 @@ class Config(object):
     GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
     ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD")
     SECRET_KEY     = os.getenv("SECRET_KEY")
+
+    PERMANENT_SESSION_LIFETIME = timedelta(minutes=30)

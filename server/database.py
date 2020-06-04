@@ -42,8 +42,8 @@ class Pages:
             def wrapper(*endpoint_args, **endpoint_kwargs):
                 self.content.clear()
 
-                for res in get_page_content(page_name, all_records=all_records):
-                    self.content[res[0]] = res[2]
+                for row in get_page_content(page_name, all_records=all_records):
+                    self.content[row[0]] = row[2]
 
                 return endpoint_func(*endpoint_args, **endpoint_kwargs)
 
@@ -52,22 +52,27 @@ class Pages:
         return decorator
 
 
-def push(text, params = None):
+def push(query, params=None):
     cursor = conn.cursor()
+
     if params:
-        res = cursor.execute(text, params)
+        res = cursor.execute(query, params)
     else:
-        res = cursor.execute(text)
+        res = cursor.execute(query)
+
     cursor.close()
     conn.commit()
 
     return res
 
 
-def get(text, one=False):
+def get(query, one=False, params=None):
     cursor = conn.cursor()
 
-    cursor.execute(text)
+    if params:
+        cursor.execute(query, params)
+    else:
+        cursor.execute(query)
 
     if one:
         res = cursor.fetchone()
@@ -81,18 +86,22 @@ def get(text, one=False):
 
 
 def get_page_content(page_id, all_records=False):
-
-    return get(f"SELECT * FROM dynamic_content WHERE page_id = '{page_id}' OR {all_records}")
+    query = "SELECT * FROM dynamic_content WHERE page_id = %s OR %s"
+    params = (page_id, all_records)
+    return get(query, params=params)
 
 
 def update_element_content(element_id, content):
-    push(f"UPDATE dynamic_content SET content = {content} WHERE element_id='{element_id}'")
+    query = "UPDATE dynamic_content SET content = %s WHERE element_id=%s"
+    params = (content, element_id)
+    push(query, params=params)
+
+    return "Success"
 
 
 def insert_dynamic_content(element_id, page_id, content):
-
     query = "INSERT INTO dynamic_content (element_id, page_id, content) VALUES (%s, %s, %s)"
+    params = (element_id, page_id, content)
+    push(query, params=params)
 
-    push(query, (element_id, page_id, content))
-
-    return "It worked"
+    return "Success"

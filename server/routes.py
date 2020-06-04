@@ -52,6 +52,9 @@ def login():
         plain_text_password = request.form["password"]
         session["password"] = generate_password_hash(plain_text_password)
 
+        # session will expire after 30 minutes
+        session.permanent = True
+
         return redirect("/admin")
 
     elif request.method == "GET":
@@ -102,12 +105,9 @@ def tilt_a_roll_func():
 @app.route('/text_content', methods=['PUT'])
 @login_required
 def text_content():
-    # TODO: Carefully check authentication (of Lauren) via session variables
     # How to grab id and value that were just changed (error handle them):
     element_id, content = request.json["id"], request.json["value"]
-
-    # database.update_element_content(element_id, content)
-
+    database.update_element_content(element_id, content)
     return jsonify({'success': 'yes'})
 
 
@@ -146,11 +146,13 @@ def apply_response_func():
     # TODO: insert data from response into db.
     return jsonify({'success': 'yes'})
 
+
 @app.route('/drop_databases')
 @login_required
 def drop_databases():
     x = db_setup.drop_form_entries()
     return db_setup.drop_dynamic_content()
+
 
 @app.route('/create_databases')
 @login_required
@@ -161,6 +163,7 @@ def create_databases():
 
 def add_to_dynamic_content(element_id, page_id, content):
     return database.insert_dynamic_content(element_id, page_id, content)
+
 
 @app.route('/add_everything')
 @login_required
@@ -182,6 +185,7 @@ def add_everything():
         x = database.insert_dynamic_content(*item)
     
     return "it worked"
+
 
 @app.route('/get_everything')
 @login_required
