@@ -1,8 +1,6 @@
 $(document).ready(function() {
-  $("textarea").change(textInputChanged); // all text inputs are <textarea>s
-  $("textarea").on('input', saveButtonAppear);
+  $("textarea").on('change', saveButtonAppear);
   $("input").change(imageInputChanged);  // all image inputs are <input>s
-
 });
 
 // FUNCTION (utility): protocol_hostname_port
@@ -12,24 +10,28 @@ function protocol_hostname_port() {
   return location.protocol + '//' + location.hostname + (location.port ? ':'+location.port: '');
 }
 
-function saveButtonAppear() { 
+function saveButtonAppear() {
   var textarea_div = $(this).parent();
   var label_div = textarea_div.parent();
-  if (!(label_div.has("button").length)) textarea_div.before('<button class="btn admin-save-button" onclick="saveButtonDisappear()">Save</button>');
+  if (!(label_div.has("button").length)) textarea_div.append('<button type="button" class="btn admin-save-button" >Save</button>');
+  $(".admin-save-button").off("click");
+  $(".admin-save-button").click(saveButtonDisappear);
 }
 
 function saveButtonDisappear() {
+  var admin_id = $(this).prev().attr('id');
+  var admin_val = $(this).prev().val();
+  textInputChanged(admin_id, admin_val);
   $(this).remove();
 }
 
-function textInputChanged(){
+function textInputChanged(admin_id, admin_val){
   console.log("Here");
   // var v = document.getElementById("first-landing-paragraph").value; <== normal JS
   // var v = $('#first-landing-paragraph') // <== jquery
   //console.log($(this));
-  var admin_id = $(this).attr('id');
-  saveButtonAppear($(this).parent());
-  var admin_val = $(this).val();
+
+  console.log(admin_id, admin_val);
   var o = {id: admin_id, value: admin_val};
   o[admin_id] = admin_val;
 
@@ -67,7 +69,7 @@ function imageInputChanged() {
   var form_data = new FormData();
   form_data.append(admin_id, $('#' + admin_id)[0].files[0]);
   console.log(form_data);
-  
+
   var xhttp = new XMLHttpRequest();
   xhttp.open("POST", protocol_hostname_port() + "/image_content", true);
   xhttp.send(form_data);
@@ -77,5 +79,5 @@ function imageInputChanged() {
       console.log(response);
     }
   }
-  
+
 }
