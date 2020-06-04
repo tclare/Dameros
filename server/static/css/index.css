@@ -201,6 +201,7 @@ ol{
 
 .admin-image{
   width: 100%;
+  cursor: pointer;
 }
 
 .file-upload{
@@ -232,10 +233,11 @@ label, fieldset {
 }
 
 .admin-column{
-  margin-bottom: 25px;
+  margin-bottom: 50px;
 }
 
 .admin-text-area-div {
+  position: relative;
   height: 100%;
 }
 
@@ -246,4 +248,12 @@ label, fieldset {
 
 .form-group { 
   height: 100%;
+}
+
+.admin-save-button { 
+  /*position: absolute;*/
+  background-color: #80002D;
+  color: white;
+  /*top: 5px;
+  right: 5px;*/
 }
