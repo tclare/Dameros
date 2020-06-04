@@ -52,9 +52,12 @@ class Pages:
         return decorator
 
 
-def push(text):
+def push(text, params = None):
     cursor = conn.cursor()
-    res = cursor.execute(text)
+    if params:
+        res = cursor.execute(text, params)
+    else:
+        res = cursor.execute(text)
     cursor.close()
     conn.commit()
 
@@ -78,28 +81,18 @@ def get(text, one=False):
 
 
 def get_page_content(page_id, all_records=False):
-    records = [
-        ("picture", "home", "pic"),
-        ("paragraph1", "demo", "abcdefg"),
-        ("paragraph2", "demo", "1234"),
-        ("paragraph3", "success_stories", "abcd"),
-        ("paragraph4", "apply", "bedef")
-    ]
 
-    return [
-        r for r in records if (r[1] == page_id) or all_records
-    ]
-
-    # return get(f"SELECT * FROM dynamic_content WHERE page_id = {page_id} OR {all_records}")
+    return get(f"SELECT * FROM dynamic_content WHERE page_id = '{page_id}' OR {all_records}")
 
 
 def update_element_content(element_id, content):
-    push(f"UPDATE dynamic_content SET content = {content} WHERE element_id={element_id}")
+    push(f"UPDATE dynamic_content SET content = {content} WHERE element_id='{element_id}'")
 
 
-def test():
-    query = "INSERT INTO dynamic_content (element_id, page_id, content) VALUES ('#element2', 'home', 'test content2')"
-    push(query)
+def insert_dynamic_content(element_id, page_id, content):
 
-    query = "SELECT * FROM dynamic_content WHERE page_id = 'home'"
-    return get(query)
+    query = "INSERT INTO dynamic_content (element_id, page_id, content) VALUES (%s, %s, %s)"
+
+    push(query, (element_id, page_id, content))
+
+    return "It worked"
