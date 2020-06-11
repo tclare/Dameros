@@ -105,3 +105,27 @@ def insert_dynamic_content(element_id, page_id, content):
     push(query, params=params)
 
     return "Success"
+
+def insert_form_response(form_response):
+
+    query = "INSERT INTO form_responses (name, email, sport, agent_email, agent_phone, time, interest) VALUES (%s, %s, %s, %s, %s, NOW(), %s)"
+    # TODO: fix hard-coding by sending correct nfo from front end
+    params = (form_response["name"], form_response["email"], form_response["sport"], "tclare@nd.edu", "012-345-6789", form_response["philanthropicInterest"])
+    push(query, params=params)
+    return "Success"
+
+def get_form_responses(applicant_name='', all_records=False):
+
+    query = "SELECT * FROM form_responses WHERE name = %s OR %s"
+    params = (applicant_name, all_records)
+    return get(query, params=params)
+
+def insert_team_member(team_member):
+    query = "INSERT INTO team_members (name, description) VALUES (%s, %s)"
+    params = (team_member["name"], team_member["description"])
+    push(query, params=params)
+    return "Success"
+
+def get_team_members():
+    query = "SELECT * FROM team_members"
+    return get(query)

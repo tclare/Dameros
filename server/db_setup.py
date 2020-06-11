@@ -65,8 +65,7 @@ def create_form_responses_table():
     query = """
             CREATE TABLE form_responses(
                 id SERIAL PRIMARY KEY,
-                first_name VARCHAR NOT NULL,
-                last_name VARCHAR NOT NULL,
+                name VARCHAR NOT NULL,
                 email VARCHAR,
                 sport VARCHAR,
                 agent_email VARCHAR,
@@ -75,6 +74,42 @@ def create_form_responses_table():
                 interest VARCHAR
             )
         """
+
+    cursor = conn.cursor()
+    cursor.execute(query)
+    cursor.close()
+    conn.commit()
+    conn.close()
+
+    return "It worked"
+
+def create_team_members_table():
+    db_url = app.config["DATABASE_URL"]
+    
+    conn = psycopg2.connect(db_url, sslmode="require")
+    
+    query = """
+        CREATE TABLE team_members(
+            id SERIAL PRIMARY KEY,
+            name VARCHAR NOT NULL,
+            description VARCHAR
+        )
+    """
+
+    cursor = conn.cursor()
+    cursor.execute(query)
+    cursor.close()
+    conn.commit()
+    conn.close()
+
+    return "It worked"
+
+def drop_team_members():
+    db_url = app.config["DATABASE_URL"]
+    
+    conn = psycopg2.connect(db_url, sslmode="require")
+
+    query = "DROP TABLE team_members"
 
     cursor = conn.cursor()
     cursor.execute(query)

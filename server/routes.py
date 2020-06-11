@@ -102,9 +102,9 @@ def tilt_a_roll_func():
     return render_template("play.html")
 
 
-@app.route('/text_content', methods=['PUT'])
+@app.route('/update_text_content', methods=['PUT'])
 @login_required
-def text_content():
+def update_text_content():
     # How to grab id and value that were just changed (error handle them):
     element_id, content = request.json["id"], request.json["value"]
     database.update_element_content(element_id, content)
@@ -140,16 +140,27 @@ def image_content():
 
 
 @app.route('/apply_response', methods=['POST'])
-def apply_response_func():
+def add_apply_response_func():
     form_response = request.json # ex. {'name': 'a', 'email': 'b', 'sport': 'c', 'donationAmount': '$0-$1,000', 'philanthropicInterest': 'd'}
-    print(form_response)
-    # TODO: insert data from response into db.
+    database.insert_form_response(form_response)
     return jsonify({'success': 'yes'})
+
+# get application response -> specify person like /apply_response?name=Andy Slavin
+@app.route('/apply_response', methods=['GET'])
+@login_required
+def get_apply_response_func():
+    name = request.args.get('name')
+    if name:
+        response = database.get_form_responses(applicant_name=name)
+    else:
+        response = database.get_form_responses(all_records=True)
+    return jsonify(response)
 
 
 @app.route('/drop_databases')
 @login_required
 def drop_databases():
+    x = db_setup.drop_team_members()
     x = db_setup.drop_form_entries()
     return db_setup.drop_dynamic_content()
 
@@ -157,12 +168,9 @@ def drop_databases():
 @app.route('/create_databases')
 @login_required
 def create_databases():
+    x = db_setup.create_team_members_table()
     x = db_setup.create_dynamic_content_table()
     return db_setup.create_form_responses_table()
-
-
-def add_to_dynamic_content(element_id, page_id, content):
-    return database.insert_dynamic_content(element_id, page_id, content)
 
 
 @app.route('/add_everything')
@@ -186,8 +194,18 @@ def add_everything():
     
     return "it worked"
 
-
-@app.route('/get_everything')
+@app.route('/get_all_dynamic_content')
 @login_required
 def get_all_dynamic_content():
     return str(database.get_page_content('', True))
+
+@app.route('/team_members', methods=['POST'])
+@login_required
+def add_team_member_func():
+    team_member = request.json # ex. {'name': 'Andy Slavin', 'description': 'Andy is from California and blah blah blah...'}
+    database.insert_team_member(team_member)
+    return jsonify({'success': 'yes'})
+
+@app.route('/team_members', methods=['GET'])
+def get_team_members_func():
+    return jsonify(database.get_team_members())

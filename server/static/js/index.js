@@ -31,7 +31,7 @@ function textInputChanged(admin_id, admin_val){
   // Make a request to the server.
   var xhttp = new XMLHttpRequest();
   // Step 1: send request to server.
-  xhttp.open("PUT", protocol_hostname_port() + "/text_content", true); // GET, POST (add something new), PUT (modify something), DELETE (get rid of something),
+  xhttp.open("PUT", protocol_hostname_port() + "/update_text_content", true); // GET, POST (add something new), PUT (modify something), DELETE (get rid of something),
   xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   xhttp.send(JSON.stringify(o));
   xhttp.onreadystatechange = function (e) {
