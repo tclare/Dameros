@@ -257,3 +257,20 @@ label, fieldset {
   bottom: -5px;
   right: 5px;
 }
+
+
+#login-whole-page { 
+  background-image: url('../img/login.jpg');
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+}
+
+.modal-title { 
+  font-weight: bold;
+}
+
+#login {
+  background-color: #80002D;
+  color: white;
+}

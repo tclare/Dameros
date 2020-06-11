@@ -1,23 +1,54 @@
-{% extends "base.html" %}
-{% block content %}
-<div id="process">
-  <div class="filler-color">
-  </div>
 
-  <div id="apply-content">
-  <h2>Log-in</h2>
-  <p> Please enter the administrative password.</p>
-  </div>
+<!DOCTYPE HTML>
+<html>
+<head>
+      <title>Dameros</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link href="https://fonts.googleapis.com/css2?family=Domine&Playfair+Display&display=swap" rel="stylesheet">
+      <!-- custom stylesheets here -->
+      <link rel="stylesheet" href="../static/css/index.css">
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      <!-- custom scripts here -->
+      <script src="static/js/common.js"></script>
+      <script src="static/js/admin.js"></script>
+      <!-- <script src="static/js/index.js"></script> -->
+</head>
+<body>
+    <div id="login-whole-page">
+        <!-- Button trigger modal -->
+        <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+            Launch demo modal
+        </button>-->
+        
+        <!-- Jack's stuff! 
+            <form action="/login" method="post">
+                <input type="text" id="password" name="password">
+                <input type="submit">
+            </form> -->
 
-    <form action="/login" method="post">
-        <input type="text" id="password" name="password">
-        <input type="submit">
-    </form>
+        <!-- Modal -->
+        <div class="modal fade" id="admin-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Welcome Dameros Administrator!</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="pw" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-dameros" id="login">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<<<<<<< HEAD
-{% endblock %}
-=======
-    <div class="filler-color">
-    </div>
-{% endblock %}
->>>>>>> 0920d6141102291abba9c82d7ca12803121fd6eb
+        </div>
+    </body>
+</html>

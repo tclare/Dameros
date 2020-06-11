@@ -49,23 +49,23 @@ def login_required(func):
 def login():
     if request.method == "POST":
         # hash password before assigning it to a session variable
-        plain_text_password = request.form["password"]
+        plain_text_password = request.json["password"]
         session["password"] = generate_password_hash(plain_text_password)
 
         # session will expire after 30 minutes
         session.permanent = True
 
-        return redirect("/admin")
+        return jsonify({"success": "yes"})
 
     elif request.method == "GET":
         # load login form
         # 10 failed attempts per session
         session["attempts"] = session.get("attempts", 0) + 1
 
-        if session["attempts"] > 10:
-            return "Too many failed attempts"
-        else:
-            return render_template("login.html")
+        # if session["attempts"] > 10:
+        #     return "Too many failed attempts"
+        # else:
+        return render_template("login.html")
 
     # invalid method
     return abort(400)
